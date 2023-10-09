@@ -8,9 +8,7 @@ BIN_DIR	=	bin/
 
 
 SRCS	=	main.cpp \
-			HumanA.cpp \
-			HumanB.cpp \
-			Weapon.cpp
+			Harl.cpp
 
 OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
 
