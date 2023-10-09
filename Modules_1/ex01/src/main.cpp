@@ -5,27 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 16:14:14 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/09 16:14:31 by ztrottie         ###   ########.fr       */
+/*   Created: 2023/10/09 16:13:36 by ztrottie          #+#    #+#             */
+/*   Updated: 2023/10/09 16:13:37 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "../include/Zombie.hpp"
 
-using std::cout;
+int	main(void) {
+	Zombie *horde;
+	int		nb = 42;
 
-int main(void) {
-	Zombie	*zack;
-	Zombie	*will;
-	randomChump("antouene");
-	randomChump("zach");
-	randomChump("raph");
-	zack = newZombie("zack");
-	will = newZombie("will");
-	zack->announce();
-	will->announce();
-	delete zack;
-	delete will;
+	horde = zombieHorde(42, "gros criss de sale");
+	for (int i = 0; i < nb; i++)
+		horde[i].announce();
+	delete [] horde;
 	return 0;
 }

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 16:14:14 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/09 16:14:31 by ztrottie         ###   ########.fr       */
+/*   Created: 2023/10/09 16:12:57 by ztrottie          #+#    #+#             */
+/*   Updated: 2023/10/09 16:12:58 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
-#include "../include/Zombie.hpp"
+#include "Weapon.hpp"
 
-using std::cout;
+class HumanB
+{
+private:
+	std::string name_;
+	Weapon		*weapon_;
 
-int main(void) {
-	Zombie	*zack;
-	Zombie	*will;
-	randomChump("antouene");
-	randomChump("zach");
-	randomChump("raph");
-	zack = newZombie("zack");
-	will = newZombie("will");
-	zack->announce();
-	will->announce();
-	delete zack;
-	delete will;
-	return 0;
-}
+public:
+	HumanB(std::string name);
+	HumanB(std::string name, Weapon &weapon);
+	~HumanB(void);
+
+	void	attack(void) const;
+	void	setWeapon(Weapon &weapon);
+};

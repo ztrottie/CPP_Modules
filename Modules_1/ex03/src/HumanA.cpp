@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 16:14:14 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/09 16:14:31 by ztrottie         ###   ########.fr       */
+/*   Created: 2023/10/09 16:13:09 by ztrottie          #+#    #+#             */
+/*   Updated: 2023/10/09 16:13:10 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "../include/Zombie.hpp"
+#include "../include/HumanA.hpp"
 
 using std::cout;
+using std::endl;
 
-int main(void) {
-	Zombie	*zack;
-	Zombie	*will;
-	randomChump("antouene");
-	randomChump("zach");
-	randomChump("raph");
-	zack = newZombie("zack");
-	will = newZombie("will");
-	zack->announce();
-	will->announce();
-	delete zack;
-	delete will;
-	return 0;
+HumanA::HumanA(std::string name, Weapon &weapon) : name_(name), weapon_(&weapon){
+	return;
+}
+
+HumanA::~HumanA(void) {
+	return;
+}
+
+void	HumanA::attack(void) const {
+	cout << this->name_ << " attacks with their " << this->weapon_->getType() << endl;
+	return;
 }

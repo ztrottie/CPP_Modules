@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 16:14:14 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/09 16:14:31 by ztrottie         ###   ########.fr       */
+/*   Created: 2023/10/09 16:13:40 by ztrottie          #+#    #+#             */
+/*   Updated: 2023/10/09 16:13:41 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
-#include "../include/Zombie.hpp"
 
-using std::cout;
+class Zombie
+{
+private:
+	std::string	name_;
 
-int main(void) {
-	Zombie	*zack;
-	Zombie	*will;
-	randomChump("antouene");
-	randomChump("zach");
-	randomChump("raph");
-	zack = newZombie("zack");
-	will = newZombie("will");
-	zack->announce();
-	will->announce();
-	delete zack;
-	delete will;
-	return 0;
-}
+public:
+	Zombie(void);
+	Zombie(std::string);
+	~Zombie(void);
+	void	setName(std::string	name);
+	void	announce(void) const;
+};
+
+Zombie* zombieHorde( int N, std::string name );

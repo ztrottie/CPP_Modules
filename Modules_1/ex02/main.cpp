@@ -5,27 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 16:14:14 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/09 16:14:31 by ztrottie         ###   ########.fr       */
+/*   Created: 2023/10/09 16:13:24 by ztrottie          #+#    #+#             */
+/*   Updated: 2023/10/09 16:13:25 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "../include/Zombie.hpp"
 
 using std::cout;
+using std::endl;
 
 int main(void) {
-	Zombie	*zack;
-	Zombie	*will;
-	randomChump("antouene");
-	randomChump("zach");
-	randomChump("raph");
-	zack = newZombie("zack");
-	will = newZombie("will");
-	zack->announce();
-	will->announce();
-	delete zack;
-	delete will;
-	return 0;
+	std::string string = "HI THIS IS BRAIN";
+	std::string *stringPTR = &string;
+	std::string &stringREF = string;
+
+	cout << "string address: " << &string << endl;
+	cout << "stringPTR address: " << &stringPTR << endl;
+	cout << "stringREF address: " << &stringREF << endl;
+
+	cout << "string value: " << string << endl;
+	cout << "stringPTR value: " << *stringPTR << endl;
+	cout << "stringREF value: " << stringREF << endl;
 }
