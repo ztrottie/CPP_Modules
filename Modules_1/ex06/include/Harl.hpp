@@ -1,6 +1,12 @@
 #pragma once
 #include <iostream>
 
+enum	eLevels {
+	eDebug,
+	eInfo,
+	eWarning,
+	eError
+};
 
 class Harl
 {
