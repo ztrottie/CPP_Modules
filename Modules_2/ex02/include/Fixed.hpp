@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:28:38 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/17 12:29:24 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:26:13 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ class Fixed
 {
 private:
 	int 				value_;
-	static int const	fractionalBits_;
+	static int const	fractionalBits_ = 8;
 
 public:
 	Fixed(void);
@@ -25,23 +25,23 @@ public:
 	Fixed(float const &nb);
 	~Fixed(void);
 
-	Fixed	&operator=(Fixed const &inst);
-	Fixed	operator+(Fixed const &inst) const;
-	Fixed	operator-(Fixed const &inst) const;
-	Fixed	operator*(Fixed const &inst) const;
-	Fixed	operator/(Fixed const &inst) const;
+	Fixed	&operator=(Fixed const &rhs);
+	Fixed	operator+(Fixed const &rhs) const;
+	Fixed	operator-(Fixed const &rhs) const;
+	Fixed	operator*(Fixed const &rhs) const;
+	Fixed	operator/(Fixed const &rhs) const;
 
 	Fixed	&operator++();
 	Fixed	operator++(int dummy);
 	Fixed	&operator--();
 	Fixed	operator--(int dummy);
 
-	bool	operator<(Fixed const &inst) const;
-	bool	operator>(Fixed const &inst) const;
-	bool	operator<=(Fixed const &inst) const;
-	bool	operator>=(Fixed const &inst) const;
-	bool	operator==(Fixed const &inst) const;
-	bool	operator!=(Fixed const &inst) const;
+	bool	operator<(Fixed const &rhs) const;
+	bool	operator>(Fixed const &rhs) const;
+	bool	operator<=(Fixed const &rhs) const;
+	bool	operator>=(Fixed const &rhs) const;
+	bool	operator==(Fixed const &rhs) const;
+	bool	operator!=(Fixed const &rhs) const;
 
 	int 	getRawBits(void) const;
 	void	setRawBits(int const raw);

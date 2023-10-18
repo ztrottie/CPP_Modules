@@ -8,7 +8,9 @@ BIN_DIR	=	bin/
 
 
 SRCS	=	main.cpp \
-			Fixed.cpp
+			Fixed.cpp \
+			bsp.cpp \
+			Point.cpp
 
 OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
 
