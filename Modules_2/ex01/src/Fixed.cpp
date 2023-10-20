@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:28:35 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/17 08:51:45 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/20 09:48:05 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 using std::cout;
 using std::endl;
 using std::roundf;
-
-const int Fixed::fractionalBits_ = 8;
 
 Fixed::Fixed(void) : value_(0){
 	cout << "Default constructor called" << endl;

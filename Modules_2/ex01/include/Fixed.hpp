@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:28:38 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/16 16:45:24 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/20 09:48:09 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ class Fixed
 {
 private:
 	int 				value_;
-	static int const	fractionalBits_;
+	static int const	fractionalBits_ = 8;
 
 public:
 	Fixed(void);

@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 09:43:13 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/19 12:02:49 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/20 09:58:05 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ using std::endl;
 
 class ClapTrap
 {
-private:
+protected:
 	std::string		name_;
 	unsigned int	hitPoints_;
 	unsigned int	energyPoints_;

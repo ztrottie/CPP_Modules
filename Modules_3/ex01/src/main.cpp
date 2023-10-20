@@ -6,16 +6,16 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:40:29 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/19 12:20:18 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/20 13:33:08 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ClapTrap.hpp"
+#include "../include/ScavTrap.hpp"
 
 int	main(void) {
-	ClapTrap bob("Roger");
+	ScavTrap bob("Roger");
 	ClapTrap will("William");
-	
+	// ScavTrap jake(bob);
 	//energy test
 	bob.attack("William");
 	will.takeDamage(2);
