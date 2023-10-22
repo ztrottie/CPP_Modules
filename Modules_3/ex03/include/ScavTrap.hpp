@@ -6,14 +6,14 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:21:28 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/22 10:43:37 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/22 12:55:02 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "../include/ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 private:
 	bool	gateKeeper_;
