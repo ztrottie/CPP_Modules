@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:55:10 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/24 13:34:03 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:56:54 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void FragTrap::highFivesGuys(void) {
 	if (std::cin.fail())
 		return;
 	if (line[0] == 'Y')
-		cout << "You did!" << endl;
+		cout << "You did CBT!" << endl;
 	else if (line[0] == 'N')
-		cout << "You didn't" << endl;
+		cout << "You didn't BOZO" << endl;
 	else
 		cout << "Not a valid answer you TWAT!" << endl;
 	return;
