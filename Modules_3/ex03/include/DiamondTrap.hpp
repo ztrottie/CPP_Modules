@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 12:20:40 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/24 10:10:29 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:45:31 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 
 	// Functions
 	void	attack(const std::string& target);
+	void	whoami(void) const;
 };
 
 // DiamondTrap_HPP

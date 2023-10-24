@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:55:10 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/22 12:04:05 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:34:03 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 
 FragTrap::FragTrap() : ClapTrap() {
 	std::cout << "Default FragTrap constructor " << std::endl;
+	this->attackDamage_ = defAttackDamage_;
+	this->hitPoints_ = defHitPoint_;
+	this->energyPoints_ = defEnergyPoint_;
 }
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
 	cout << "FragTrap " << this->name_ << " constructor" << endl;
-	this->attackDamage_ = 30;
-	this->hitPoints_ = 100;
-	this->energyPoints_ = 100;
+	this->attackDamage_ = defAttackDamage_;
+	this->hitPoints_ = defHitPoint_;
+	this->energyPoints_ = defEnergyPoint_;
 	return;
 }
 
@@ -58,4 +61,12 @@ void FragTrap::highFivesGuys(void) {
 	else
 		cout << "Not a valid answer you TWAT!" << endl;
 	return;
+}
+
+int FragTrap::get_defHitPoints(void)  const {
+	return defHitPoint_;
+}
+
+int FragTrap::get_defAttackDamage(void)  const {
+	return defAttackDamage_;
 }

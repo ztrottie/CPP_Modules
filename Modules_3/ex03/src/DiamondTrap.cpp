@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 12:21:08 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/24 10:18:03 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:45:41 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 #include <iostream>
 
 DiamondTrap::DiamondTrap() : ClapTrap("_clap_name"), ScavTrap("_clap_name"), FragTrap("_clap_name") {
-	std::cout << "Default DiamondTrap constructor " << std::endl;|
+	std::cout << "Default DiamondTrap constructor " << std::endl;
+	this->attackDamage_ = FragTrap::get_defAttackDamage();
+	this->hitPoints_ = FragTrap::get_defAttackDamage();
+	this->energyPoints_ = ScavTrap::get_defEnergyPoint();
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &inst) : ClapTrap(inst), ScavTrap(inst), FragTrap(inst) {
@@ -44,4 +47,9 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &rhs) {
 
 void	DiamondTrap::attack(const std::string& target) {
 	ScavTrap::attack(target);
+}
+
+void	DiamondTrap::whoami(void) const {
+	cout << "Hello i am " << this->name_ << " and my clap name is " << ClapTrap::name_ << std::endl;
+	return;
 }
