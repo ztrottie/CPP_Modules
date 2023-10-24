@@ -6,17 +6,17 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:40:29 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/22 12:02:44 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/24 10:11:53 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ScavTrap.hpp"
-#include "../include/FragTrap.hpp"
+#include "../include/DiamondTrap.hpp"
 
 int	main(void) {
 	ScavTrap bob("Roger");
 	ClapTrap will("William");
 	FragTrap jake("Jacob");
+	DiamondTrap zach("Zachary");
 
 	
 	bob.guardGate();
@@ -47,5 +47,6 @@ int	main(void) {
 	bob.takeDamage(456234);
 	bob.guardGate();
 	jake.highFivesGuys();
+	zach.attack("zack");
 	return 0;
 }

@@ -6,15 +6,15 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 12:21:08 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/22 13:53:17 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/24 10:18:03 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/DiamondTrap.hpp"
 #include <iostream>
 
-DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), name_("DT_name") {
-	std::cout << "Default DiamondTrap constructor " << std::endl;
+DiamondTrap::DiamondTrap() : ClapTrap("_clap_name"), ScavTrap("_clap_name"), FragTrap("_clap_name") {
+	std::cout << "Default DiamondTrap constructor " << std::endl;|
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &inst) : ClapTrap(inst), ScavTrap(inst), FragTrap(inst) {
@@ -22,11 +22,8 @@ DiamondTrap::DiamondTrap(const DiamondTrap &inst) : ClapTrap(inst), ScavTrap(ins
 	*this = inst;
 }
 
-DiamondTrap:DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"),  {
+DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name"), name_(name) {
 	cout << "DiamondTrap " << this->name_ << " constructor" << endl;
-	this->attackDamage_ = 30;
-	this->hitPoints_ = 100;
-	this->energyPoints_ = 100;
 	return;
 }
 
