@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:21:28 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/24 13:34:55 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/25 09:57:37 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 class ScavTrap : virtual public ClapTrap
 {
+protected:
+	bool				gateKeeper_;
 private:
-	bool	gateKeeper_;
-	static const int	defHitPoint_ = 100;
-	static const int	defAttackDamage_ = 20;
 	static const int	defEnergyPoint_ = 50;
-
 public:
 	ScavTrap();
 	ScavTrap(const ScavTrap	&inst);

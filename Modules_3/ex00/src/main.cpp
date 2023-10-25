@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:40:29 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/19 12:20:18 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/25 09:12:35 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,48 +17,14 @@ int	main(void) {
 	ClapTrap will("William");
 	
 	//energy test
-	bob.attack("William");
-	will.takeDamage(2);
-	will.beRepaired(2);
-	will.attack("Roger");
-	bob.takeDamage(2);
-	bob.beRepaired(2);
-
-	bob.attack("William");
-	will.takeDamage(2);
-	will.beRepaired(2);
-	will.attack("Roger");
-	bob.takeDamage(2);
-	bob.beRepaired(2);
-
-	bob.attack("William");
-	will.takeDamage(2);
-	will.beRepaired(2);
-	will.attack("Roger");
-	bob.takeDamage(2);
-	bob.beRepaired(2);
-
-	bob.attack("William");
-	will.takeDamage(2);
-	will.beRepaired(2);
-	will.attack("Roger");
-	bob.takeDamage(2);
-	bob.beRepaired(2);
-
-	bob.attack("William");
-	will.takeDamage(2);
-	will.beRepaired(2);
-	will.attack("Roger");
-	bob.takeDamage(2);
-	bob.beRepaired(2);
-
-	bob.attack("William");
-	will.takeDamage(2);
-	will.beRepaired(2);
-	will.attack("Roger");
-	bob.takeDamage(2);
-	bob.beRepaired(2);
-	
+	for (int i = 0; i < 10; i ++) {
+		bob.attack("William");
+		will.takeDamage(2);
+		will.beRepaired(2);
+		will.attack("Roger");
+		bob.takeDamage(2);
+		bob.beRepaired(2);
+	}
 	//hitpoint test
 
 	bob.takeDamage(123432);

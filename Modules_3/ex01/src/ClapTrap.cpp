@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:56:09 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/22 10:19:07 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/25 09:15:25 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		cout << " is dead! Isn't it weird to hit a dead body? RIP (no hitPoints left)" << endl;
 		return;
 	}
-	else if (amount > this->hitPoints_)
-		this->hitPoints_ = 0;
-	else
-		this->hitPoints_ -= amount;
+	this->hitPoints_ < amount ? this->hitPoints_ = 0 : this->hitPoints_ -= amount;
 	cout << "ClapTrap " << this->name_ << " took " << amount << " damage! Big is too slow" << endl;
 	return;
 }

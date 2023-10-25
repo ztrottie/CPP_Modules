@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:55:10 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/22 12:04:05 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:04:05 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ FragTrap::FragTrap(const FragTrap &inst) : ClapTrap(inst) {
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "FragTrap destructor" << std::endl;
+	cout << "FragTrap " << this->name_ << " Destructor" << endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap &rhs) {
@@ -47,15 +47,14 @@ FragTrap& FragTrap::operator=(const FragTrap &rhs) {
 void FragTrap::highFivesGuys(void) {
 	std::string line;
 
-	cout << "Do you want to high five " << this->name_ << "? Y\\N: ";
-	std::getline(std::cin, line);
-	if (std::cin.fail())
+	if (this->hitPoints_ == 0) {
+		cout <<"FragTrap " << this->name_ << " is dead can't ask for a high five! DUH!" << endl;
 		return;
-	if (line[0] == 'Y')
-		cout << "You did!" << endl;
-	else if (line[0] == 'N')
-		cout << "You didn't" << endl;
-	else
-		cout << "Not a valid answer you TWAT!" << endl;
+	}
+	else if (this->energyPoints_ == 0) {
+		cout <<"FragTrap " << this->name_ << " is exhaused can't even lift his hand! DAMN!" << endl;
+		return; 
+	}
+	cout << "FragTrap: Do you want to high five " << this->name_ << "?🖐" << endl;
 	return;
 }

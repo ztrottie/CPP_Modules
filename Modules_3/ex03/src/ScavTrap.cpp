@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 09:45:46 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/24 13:34:35 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/25 09:52:55 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap(),  gateKeeper_(false) {
 	cout << "Default ScavTrap constructor" << endl;
-	this->attackDamage_ = defAttackDamage_;
-	this->hitPoints_ = defHitPoint_;
+	this->attackDamage_ = 20;
+	this->hitPoints_ = 100;
 	this->energyPoints_ = defEnergyPoint_;
 	return;
 }
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name),  gateKeeper_(false) {
 	cout << "ScavTrap " << this->name_ << " constructor" << endl;
-	this->attackDamage_ = defAttackDamage_;
-	this->hitPoints_ = defHitPoint_;
+	this->attackDamage_ = 20;
+	this->hitPoints_ = 100;
 	this->energyPoints_ = defEnergyPoint_;
 	return;
 }
