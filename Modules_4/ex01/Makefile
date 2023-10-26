@@ -1,4 +1,4 @@
-NAME	=	ex00
+NAME	=	ex01
 
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -Wno-shadow -Wshadow
@@ -12,7 +12,8 @@ SRCS	=	main.cpp \
 			Cat.cpp \
 			Dog.cpp \
 			WrongAnimal.cpp \
-			WrongCat.cpp
+			WrongCat.cpp \
+			Brain.cpp
 
 OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
 
