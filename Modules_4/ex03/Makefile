@@ -1,23 +1,20 @@
-NAME	=	ex02
+NAME = ex03
+CC = c++
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -Wno-shadow -Wshadow
 
-CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -Wno-shadow -Wshadow
+SRC_DIR = src
+BIN_DIR = bin
 
-SRC_DIR	=	src/
-BIN_DIR	=	bin/
+SRCS = $(wildcard $(SRC_DIR)/*.cpp)
+OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(BIN_DIR)/%.o, $(SRCS))
 
-
-SRCS	=	$(wildcard $(SRC_DIR)*.cpp)
-
-OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
-
-$(BIN_DIR)%.o: $(SRC_DIR)%.cpp
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(BIN_DIR) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS)	-o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(BIN_DIR):
 	@mkdir -p $(BIN_DIR)
@@ -30,4 +27,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re

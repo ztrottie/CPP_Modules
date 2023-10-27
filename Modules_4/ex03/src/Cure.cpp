@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:27:02 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/27 12:27:08 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/27 12:31:47 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Cure::Cure() {
 
 Cure::Cure(const Cure &inst) {
 	std::cout << "Copy Cure constructor " << std::endl;
+	*this = inst;
 }
 
 Cure::~Cure() {

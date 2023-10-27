@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:24:49 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/27 12:25:16 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/27 12:31:37 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Character::Character() {
 
 Character::Character(const Character &inst) {
 	std::cout << "Copy Character constructor " << std::endl;
+	*this = inst;
 }
 
 Character::~Character() {

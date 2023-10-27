@@ -6,14 +6,13 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:59:00 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/10 12:41:46 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/27 12:46:02 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
-using std::cout;
 using std::endl;
 using std::cerr;
 
