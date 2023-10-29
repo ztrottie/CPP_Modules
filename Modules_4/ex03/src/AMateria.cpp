@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:08:06 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/27 12:34:03 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/29 13:11:46 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 AMateria::AMateria() {
 	std::cout << "Default AMateria constructor " << std::endl;
+}
+
+AMateria::AMateria(std::string const & type) : type_(type) {
+	std::cout << "assignation AMateria constructor " << std::endl;
 }
 
 AMateria::AMateria(const AMateria &inst) {
@@ -27,14 +31,13 @@ AMateria::~AMateria() {
 }
 
 AMateria& AMateria::operator=(const AMateria &rhs) {
-	std::cout << "AMateria operator = overload" << std::endl;
+	std::cout << "that doesn't make sense" << std::endl;
 	if (this != &rhs) {
-
+		type_ = rhs.type_;
 	}
 	return *this;
 }
 
 void AMateria::use(ICharacter& target) {
-	(void)target;
-	return;
+	std::cout << "AMateria use on " << target.getName() << std::endl;
 }
