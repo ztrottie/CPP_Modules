@@ -6,34 +6,62 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:24:49 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/29 13:34:34 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:04:04 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Character.hpp"
 #include <iostream>
+#include <malloc/_malloc.h>
 
-Character::Character() {
-	std::cout << "Default Character constructor " << std::endl;
+using std::cout;
+using std::endl;
+
+Character::Character() :  nbMateriaDropped(0), nbMateria_(0) {
+	cout << "Default Character constructor " << endl;
+	for (int i = 0; i < 4; i++)
+			inventory_[i] = NULL;
 }
 
-Character::Character(const std::string &name) : name_(name) {
-	std::cout << "Default Character constructor " << std::endl;
+Character::Character(const std::string &name) : nbMateriaDropped(0), name_(name), nbMateria_(0) {
+	cout << "Default Character constructor " << endl;
+	for (int i = 0; i < 4; i++)
+			inventory_[i] = NULL;
 }
 
 Character::Character(const Character &inst) {
-	std::cout << "Copy Character constructor " << std::endl;
+	cout << "Copy Character constructor " << endl;
 	*this = inst;
 }
 
+void	Character::free_inventory() {
+	for (int i = 0; i < 4; i++) {
+		if (inventory_[i]) {
+			delete inventory_[i];
+			inventory_[i] = NULL;
+		}
+	}
+}
+
 Character::~Character() {
-	std::cout << "Character destructor" << std::endl;
+	cout << "Default Character destructor" << endl;
+	free_inventory();
+	for (int i = 0; i < nbMateriaDropped; i++) {
+		if (materiaDroped[i])
+			delete materiaDroped[i];
+	}
 }
 
 Character& Character::operator=(const Character &rhs) {
-	std::cout << "Character operator = overload" << std::endl;
+	cout << "Character operator = overload" << endl;
 	if (this != &rhs) {
-
+		name_ = rhs.name_;
+		nbMateria_ = rhs.nbMateria_;
+		free_inventory();
+		for (int i = 0; i < 4; i++) {
+			if (rhs.inventory_[i])
+				inventory_[i] = rhs.inventory_[i]->clone();
+		}
 	}
 	return *this;
 }
@@ -43,26 +71,35 @@ std::string const & Character::getName() const {
 }
 
 void Character::equip(AMateria* m) {
-	if (nbMateria_ != 4) {
-		inventory_[nbMateria_ - 1] = m;
-		nbMateria_++;	
+	if (nbMateria_ < 4) {
+		nbMateria_++;
+		for (int i = 0; i < 4; i++) {
+			if (!inventory_[i]) {
+				inventory_[i] = m;
+				return;
+			}
+		}
 	}
 	else
-		std::cout << "Inventory of " << name_ << " is full!" << std::endl;
+		cout << "Inventory of " << name_ << " is full!" << endl;
 }
 
 void Character::unequip(int idx) {
-	if (idx > nbMateria_ - 1 || idx < 0)
-		std::cout << "Wrong index buddy" << std::endl;
+	if (idx > 3 || idx < 0 || !inventory_[idx])
+		cout << "Wrong index buddy" << endl;
 	else {
+		materiaDroped[nbMateriaDropped] = inventory_[idx];
+		nbMateriaDropped++;
 		inventory_[idx] = NULL;
 		nbMateria_--;
+		cout << name_ << " unequiped the index: " << idx << endl;
 	}
 }
 
 void Character::use(int idx, ICharacter& target) {
-	if (idx > nbMateria_ - 1 || idx < 0)
-		std::cout << "Wrong index buddy" << std::endl;
-	else
+	if (idx > 3 || idx < 0 || !inventory_[idx])
+		cout << "Wrong index buddy" << endl;
+	else {
 		inventory_[idx]->use(target);
+	}
 }

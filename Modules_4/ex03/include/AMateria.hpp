@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:07:49 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/29 13:02:11 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:33:42 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 	// Functions
 	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter& target);
+	const std::string	&getType() const;
 };
 
 // AMateria_HPP

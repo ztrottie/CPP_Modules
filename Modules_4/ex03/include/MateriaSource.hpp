@@ -1,44 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 12:25:02 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/31 11:24:22 by ztrottie         ###   ########.fr       */
+/*   Created: 2023/10/31 10:32:47 by ztrottie          #+#    #+#             */
+/*   Updated: 2023/10/31 12:25:06 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "ICharacter.hpp"
 #include "AMateria.hpp"
-#include <string>
+#include "IMateriaSource.hpp"
 
-class Character : public ICharacter
+class MateriaSource : public IMateriaSource
 {
 private:
-	AMateria 			*inventory_[4];
-	AMateria			*materiaDroped[100];
-	int					nbMateriaDropped;
-	std::string			name_;
-	int					nbMateria_;
+	AMateria *materia[4];
+	int	nbMateria;
 public:
 	// Constructors / Destructor
-	Character();
-	Character(const std::string &name);
-	Character(const Character &inst);
-	~Character();
+	MateriaSource();
+	MateriaSource(const MateriaSource &inst);
+	~MateriaSource();
 
 	// Operator Overload
-	Character& operator=(const Character &rhs);
+	MateriaSource& operator=(const MateriaSource &rhs);
 
 	// Functions
-	std::string const & getName() const;
-	void equip(AMateria* m);
-	void unequip(int idx);
-	void use(int idx, ICharacter& target);
-	void free_inventory();
+	void learnMateria(AMateria*);
+	AMateria* createMateria(std::string const & type);
 };
 
-// Character_HPP
+// MateriaSource_HPP

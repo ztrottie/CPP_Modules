@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:08:06 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/29 13:11:46 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:34:54 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,8 @@ AMateria& AMateria::operator=(const AMateria &rhs) {
 
 void AMateria::use(ICharacter& target) {
 	std::cout << "AMateria use on " << target.getName() << std::endl;
+}
+
+const std::string &AMateria::getType() const {
+	return this->type_;
 }

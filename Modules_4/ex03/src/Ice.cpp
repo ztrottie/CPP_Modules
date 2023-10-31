@@ -6,14 +6,14 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:26:34 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/29 13:11:30 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:47:08 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Ice.hpp"
 #include <iostream>
 
-Ice::Ice() : AMateria("cure") {
+Ice::Ice() : AMateria("ice") {
 	std::cout << "Default Ice constructor " << std::endl;
 }
 

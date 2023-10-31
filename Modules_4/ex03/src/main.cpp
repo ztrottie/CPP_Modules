@@ -6,13 +6,14 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:07:25 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/29 13:36:26 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:05:24 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Character.hpp"
 #include "../include/Cure.hpp"
 #include "../include/Ice.hpp"
+#include "../include/MateriaSource.hpp"
 
 
 int main()
@@ -27,8 +28,9 @@ int main()
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
+	*(Character*)bob = *(Character*)me;
+	bob->use(0, *bob);
+	bob->use(1, *bob);
 	delete bob;
 	delete me;
 	delete src;
