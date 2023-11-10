@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:19:39 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/31 12:44:02 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:12:12 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void MateriaSource::learnMateria(AMateria* inst) {
 		nbMateria++;
 	}
 	else
-		std::cout << "no place left in the MateriaSource" << std::endl;
+		std::cout << "no space left in the MateriaSource" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {

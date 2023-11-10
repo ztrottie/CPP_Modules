@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:26:34 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/31 12:47:08 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:16:21 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Ice::~Ice() {
 
 Ice& Ice::operator=(const Ice &rhs) {
 	(void)rhs;
-	std::cout << "that doesn't make sense" << std::endl;
+	// std::cout << "that doesn't make sense" << std::endl;
 	return *this;
 }
 

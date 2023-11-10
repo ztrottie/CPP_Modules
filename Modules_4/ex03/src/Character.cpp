@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:24:49 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/31 13:04:04 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:14:14 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void Character::unequip(int idx) {
 		nbMateriaDropped++;
 		inventory_[idx] = NULL;
 		nbMateria_--;
-		cout << name_ << " unequiped the index: " << idx << endl;
 	}
 }
 

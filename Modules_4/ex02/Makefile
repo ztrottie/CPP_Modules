@@ -8,7 +8,7 @@ BIN_DIR	=	bin/
 
 
 SRCS	=	main.cpp \
-			Animal.cpp \
+			AAnimal.cpp \
 			Cat.cpp \
 			Dog.cpp \
 			WrongAnimal.cpp \

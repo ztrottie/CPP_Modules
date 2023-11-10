@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:08:06 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/31 12:34:54 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:13:37 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ AMateria::~AMateria() {
 }
 
 AMateria& AMateria::operator=(const AMateria &rhs) {
-	std::cout << "that doesn't make sense" << std::endl;
+	// std::cout << "that doesn't make sense" << std::endl;
 	if (this != &rhs) {
 		type_ = rhs.type_;
 	}

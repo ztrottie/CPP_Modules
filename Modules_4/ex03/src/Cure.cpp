@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:27:02 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/29 13:10:35 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:16:27 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Cure::~Cure() {
 
 Cure& Cure::operator=(const Cure &rhs) {
 	(void)rhs;
-	std::cout << "that doesn't make sense" << std::endl;
+	// std::cout << "that doesn't make sense" << std::endl;
 	return *this;
 }
 
