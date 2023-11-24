@@ -1,4 +1,4 @@
-NAME	=	ex00
+NAME	=	ex01
 
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -Wno-shadow -Wshadow
@@ -8,7 +8,8 @@ BIN_DIR	=	bin/
 
 
 SRCS	=	main.cpp \
-			Bureaucrat.cpp
+			Bureaucrat.cpp \
+			Form.cpp
 
 OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
 
