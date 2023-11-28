@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:43:03 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/24 13:41:26 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/11/25 10:55:22 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main(void)
 {
 	try {
-		Form	pres("pres", 2, 2);
+		Form	pres("war treaty", 2, 2);
 		std::cout << pres << std::endl;
 		Bureaucrat tommy("tom", 1);
 		Bureaucrat jimmy("jimmy", 2);
@@ -27,6 +27,7 @@ int main(void)
 		// michel = jimmy;
 		++jimmy;
 		michel.signForm(pres);
+		jimmy.signForm(pres);
 		std::cout << jimmy << std::endl;
 		std::cout << michel << std::endl;
 	} catch (std::exception &e) {

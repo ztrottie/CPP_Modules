@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:01:45 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/24 13:29:57 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:47:58 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
 	const std::string	_name;
@@ -24,13 +24,13 @@ private:
 	const int			_gradeExec;
 public:
 	// Constructors / Destructor
-	Form();
-	Form(std::string name, int gradeSign, int gradeExec);
-	Form(const Form &inst);
-	~Form();
+	AForm();
+	AForm(std::string name, int gradeSign, int gradeExec);
+	AForm(const AForm &inst);
+	~AForm();
 
 	// Operator Overload
-	Form& operator=(const Form &rhs);
+	AForm& operator=(const AForm &rhs);
 
 	// Functions
 	std::exception GradeTooLowException();
@@ -40,7 +40,8 @@ public:
 	const int	&getGradeSign() const;
 	const int	&getGradeExec() const;
 	void		beSigned(Bureaucrat &inst);
+	virtual	void	execute(Bureaucrat const & executor) = 0;
 };
 
-std::ostream & operator<<(std::ostream & o, Form const & inst);
+std::ostream & operator<<(std::ostream & o, AForm const & inst);
 // Form_HPP

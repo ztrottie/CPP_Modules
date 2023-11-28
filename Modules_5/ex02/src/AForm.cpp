@@ -6,46 +6,46 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:01:55 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/24 13:41:17 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/11/25 10:56:53 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Form.hpp"
+#include "../include/AForm.hpp"
 #include "../include/Bureaucrat.hpp"
 #include <exception>
 #include <stdexcept>
 #include <string>
 
-Form::Form() : _name(""), _status(false), _gradeSign(150), _gradeExec(150) {
-	std::cout << "Default Form constructor " << std::endl;
+AForm::AForm() : _name(""), _status(false), _gradeSign(150), _gradeExec(150) {
+	std::cout << "Default AForm constructor " << std::endl;
 }
 
-Form::Form(std::string name, int gradeSign, int gradeExec) : _name(name), _status(false), _gradeSign(gradeSign), _gradeExec(gradeExec) {
+AForm::AForm(std::string name, int gradeSign, int gradeExec) : _name(name), _status(false), _gradeSign(gradeSign), _gradeExec(gradeExec) {
 	if (gradeExec < 1 || gradeSign < 1)
 		GradeTooHighException();
 	if (gradeExec > 150 || gradeSign > 150)
 		GradeTooLowException();
 } 
 
-Form::Form(const Form &inst) : _gradeSign(150), _gradeExec(150) {
-	std::cout << "Copy Form constructor " << std::endl;
+AForm::AForm(const AForm &inst) : _gradeSign(150), _gradeExec(150) {
+	std::cout << "Copy AForm constructor " << std::endl;
 	*this = inst;
 }
 
-Form::~Form() {
-	std::cout << "Form destructor" << std::endl;
+AForm::~AForm() {
+	std::cout << "AForm destructor" << std::endl;
 }
 
-Form& Form::operator=(const Form &rhs) {
-	std::cout << "Form operator = overload" << std::endl;
+AForm& AForm::operator=(const AForm &rhs) {
+	std::cout << "AForm operator = overload" << std::endl;
 	if (this != &rhs) {
 		this->_status = rhs._status;
 	}
 	return *this;
 }
 
-std::ostream & operator<<(std::ostream & o, Form const & rhs) {
-	o << rhs.getName() << " is form that require a grade " << rhs.getGradeSign() << " to be signed and a grade " << rhs.getGradeSign() << " to be executed and is currently ";
+std::ostream & operator<<(std::ostream & o, AForm const & rhs) {
+	o << rhs.getName() << " is Aform that require a grade " << rhs.getGradeSign() << " to be signed and a grade " << rhs.getGradeSign() << " to be executed and is currently ";
 	if (rhs.getStatus())
 		o << "signed!";
 	else
@@ -53,23 +53,23 @@ std::ostream & operator<<(std::ostream & o, Form const & rhs) {
 	return o;
 }
 
-const std::string	&Form::getName() const {
+const std::string	&AForm::getName() const {
 	return this->_name;
 }
 
-const bool	&Form::getStatus() const {
+const bool	&AForm::getStatus() const {
 	return this->_status;
 }
 
-const int &Form::getGradeSign() const {
+const int &AForm::getGradeSign() const {
 	return this->_gradeSign;
 }
 
-const int &Form::getGradeExec() const {
+const int &AForm::getGradeExec() const {
 	return this->_gradeExec;
 }
 
-void	Form::beSigned(Bureaucrat &inst) {
+void	AForm::beSigned(Bureaucrat &inst) {
 	if (this->_status)
 		throw std::invalid_argument("Already signed!");
 	else if (inst.GetGrade() > this->_gradeSign)
@@ -78,10 +78,10 @@ void	Form::beSigned(Bureaucrat &inst) {
 		this->_status = true;
 }
 
-std::exception Form::GradeTooLowException() {
+std::exception AForm::GradeTooLowException() {
 	throw std::invalid_argument("Grade too low!");
 }
 
-std::exception Form::GradeTooHighException() {
+std::exception AForm::GradeTooHighException() {
 	throw std::invalid_argument("Grade too high!");
 }
