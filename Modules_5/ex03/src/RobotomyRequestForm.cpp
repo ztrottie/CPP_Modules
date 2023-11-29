@@ -6,12 +6,11 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 10:19:02 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/28 17:05:14 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:50:28 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/RobotomyRequestForm.hpp"
-#include <chrono>
 #include <ostream>
 #include <stdexcept>
 #include <cstdlib>
@@ -45,7 +44,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) {
 	std::chrono::seconds duration(1);
 	
 	if (executor.GetGrade() > this->getGradeExec())
-		throw std::invalid_argument("grade too low!");
+		throw GradeTooLowException();
 	std::cout << "**PERSING NOISE**" << std::endl;
 	for (int i = 0; i < 3; i++) {
 		std::this_thread::sleep_for(duration);

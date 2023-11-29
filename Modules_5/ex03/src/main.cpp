@@ -6,31 +6,28 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:43:03 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/28 17:10:00 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:29:29 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/AForm.hpp"
 #include "../include/Bureaucrat.hpp"
-#include "../include/ShrubberyCreationForm.hpp"
-#include "../include/PresidentialPardonForm.hpp"
-#include "../include/RobotomyRequestForm.hpp"
+#include "../include/Intern.hpp"
 #include <exception>
 
 int main(void)
 {
 	try {
+		Intern lara;
+		AForm *form = lara.makeForm("robotomy request", "michel");
+		std::cout << form->getName() << std::endl;
 		Bureaucrat tommy("tom", 1);
-		Bureaucrat jimmy("jimmy", 150);
+		Bureaucrat jimmy("jimmy", 2);
 		Bureaucrat michel("michel", 100);
-		RobotomyRequestForm robot("michel");
-		PresidentialPardonForm pardon("bob");
 		std::cout << jimmy << std::endl;
 		std::cout << michel << std::endl;
 		michel = jimmy;
 		++jimmy;
-		jimmy.executeForm(robot);
-		jimmy.executeForm(pardon);
+		jimmy.executeForm(*form);
 		std::cout << jimmy << std::endl;
 		std::cout << michel << std::endl;
 	} catch (std::exception &e) {

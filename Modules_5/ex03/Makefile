@@ -1,4 +1,4 @@
-NAME	=	ex02
+NAME	=	ex03
 
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -Wno-shadow -Wshadow
@@ -13,6 +13,7 @@ SRCS	=	main.cpp \
 			PresidentialPardonForm.cpp \
 			RobotomyRequestForm.cpp \
 			ShrubberyCreationForm.cpp \
+			Intern.cpp
 
 OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
 
