@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 11:01:00 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/28 16:12:16 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:49:57 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) {
 	std::ofstream output;
 	
 	if (executor.GetGrade() > this->getGradeExec())
-		throw std::invalid_argument("grade too low!");
+		throw GradeTooLowException();
 	output.open(this->_target + "_shrubbery");
 	if (!output.is_open())
 		throw std::invalid_argument("output file not opened");

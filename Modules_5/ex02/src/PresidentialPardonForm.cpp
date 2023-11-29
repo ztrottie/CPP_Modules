@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 10:45:23 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/28 17:06:13 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:49:40 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) {
 	if (executor.GetGrade() > this->getGradeExec())
-		throw std::invalid_argument("grade too low!");
+		throw GradeTooLowException();
 	std::cout << "mr/mrs " << this->_target << " you've been pardonned by the fabulous Zaphod Beeblebrox!!!!!!!" << std::endl;
 }
