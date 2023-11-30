@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:01:55 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/25 10:56:53 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:12:59 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	AForm::beSigned(Bureaucrat &inst) {
 		this->_status = true;
 }
 
-std::exception AForm::GradeTooLowException() {
+std::exception AForm::GradeTooLowException() const {
 	throw std::invalid_argument("Grade too low!");
 }
 
-std::exception AForm::GradeTooHighException() {
+std::exception AForm::GradeTooHighException() const {
 	throw std::invalid_argument("Grade too high!");
 }
