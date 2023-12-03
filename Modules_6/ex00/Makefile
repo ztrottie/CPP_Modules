@@ -1,4 +1,4 @@
-NAME	=	ex03
+NAME	=	ex00
 
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -Wno-shadow -Wshadow
@@ -7,7 +7,7 @@ SRC_DIR	=	src/
 BIN_DIR	=	bin/
 
 
-SRCS	=	
+SRCS	=	main.cpp
 
 OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
 
