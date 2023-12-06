@@ -6,23 +6,16 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:55:16 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/05 19:19:23 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/06 10:34:44 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Parser.hpp"
-#include <algorithm>
-#include <cctype>
-#include <cstdio>
 #include <iomanip>
-#include <ios>
-#include <limits>
 #include <cmath>
 #include <exception>
 #include <iostream>
-#include <ostream>
 #include <stdexcept>
-#include <string>
 
 Parser::Parser() : _str("default"), _type(none), _precision(1) {
 	std::cout << "Default parser constructor " << std::endl;
@@ -123,7 +116,7 @@ void	Parser::setType() {
 	isFloat();
 	isDouble();
 	if (this->_type == none)
-		throw std::invalid_argument("none of the valid type");
+		throw std::invalid_argument("none of the valid type please enter an int, float (*.*f), doubke(*.*) or char");
 }
 
 Parser::operator float() {
@@ -145,13 +138,15 @@ Parser::operator int() {
 		case intValue:
 			return _intValue;
 		case floatValue:
-			if (!std::isnan(_floatValue) && !std::isinf(_floatValue)) {
+			if (!std::isnan(_floatValue) && !std::isinf(_floatValue) 
+			&& _floatValue < std::numeric_limits<int>::max() && _floatValue > std::numeric_limits<int>::min()) {
 				return (static_cast<int>(_floatValue));
 			}
 			else
 				throw std::invalid_argument("Impossible");
 		case doubleValue:
-			if (!std::isnan(_doubleValue) && !std::isinf(_doubleValue)) {
+			if (!std::isnan(_doubleValue) && !std::isinf(_doubleValue) && 
+			_doubleValue < std::numeric_limits<int>::max() && _doubleValue > std::numeric_limits<int>::min()) {
 				return (static_cast<int>(_doubleValue));
 			}
 			else
@@ -205,7 +200,7 @@ Parser::operator char() {
 		case charValue:
 			if (_charValue < 32 || _charValue > 126)
 				throw std::invalid_argument("Non Displayable");
-			return (static_cast<char>(_intValue));
+			return (_charValue);
 	}
 	return (0);
 }
