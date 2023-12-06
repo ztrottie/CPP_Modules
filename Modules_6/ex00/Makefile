@@ -7,7 +7,8 @@ SRC_DIR	=	src/
 BIN_DIR	=	bin/
 
 
-SRCS	=	main.cpp
+SRCS	=	main.cpp \
+			Parser.cpp
 
 OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
 
