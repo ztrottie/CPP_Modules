@@ -6,13 +6,11 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:50:55 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/24 13:40:00 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:46:37 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
-#include <exception>
-#include <stdexcept>
 
 Bureaucrat::Bureaucrat() : _name(NULL), _grade(150) {
 	std::cout << "Default Bureaucrat constructor " << std::endl;
@@ -20,9 +18,9 @@ Bureaucrat::Bureaucrat() : _name(NULL), _grade(150) {
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(0) {
 	if (grade < 1)
-		GradeTooHighException();
+		throw GradeTooHighException();
 	if (grade > 150)
-		GradeTooLowException();
+		throw GradeTooLowException();
 	this->_grade = grade;
 }
 
@@ -43,22 +41,20 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &rhs) {
 	return *this;
 }
 
-Bureaucrat &Bureaucrat::operator++() {
+void	Bureaucrat::increment(int amount) {
 	std::cout << "trying to increment " << this->_name << std::endl;
-	if (this->_grade == 1)
-		GradeTooHighException();
+	if (this->_grade - amount < 1)
+		throw GradeTooHighException();
 	else
-		--this->_grade;
-	return *this;
+		this->_grade -= amount;
 }
 
-Bureaucrat &Bureaucrat::operator--() {
+void	Bureaucrat::decrement(int amount) {
 	std::cout << "trying to decrement " << this->_name << std::endl;
-	if (this->_grade == 150)
-		GradeTooLowException();
+	if (this->_grade + amount > 150)
+		throw GradeTooLowException();
 	else
-		++this->_grade;
-	return *this;
+		this->_grade += amount;
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs) {

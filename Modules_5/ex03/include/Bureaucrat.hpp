@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:50:43 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/28 17:03:13 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:36:58 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ public:
 	~Bureaucrat();
 	// Operator Overload
 	Bureaucrat& operator=(const Bureaucrat &rhs);
-	Bureaucrat &operator++();
-	Bureaucrat &operator--();
 
 	// Functions
+	void				increment(int amount);
+	void				decrement(int amount); 
 	std::exception		GradeTooLowException();
 	std::exception		GradeTooHighException();
 	const std::string	&getName() const;

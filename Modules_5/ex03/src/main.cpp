@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:43:03 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/30 11:46:19 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:56:58 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(void)
 		std::cout << jimmy << std::endl;
 		std::cout << michel << std::endl;
 		michel = jimmy;
-		++jimmy;
+		tommy.signForm(*form);
 		jimmy.executeForm(*form);
 		std::cout << jimmy << std::endl;
 		std::cout << michel << std::endl;

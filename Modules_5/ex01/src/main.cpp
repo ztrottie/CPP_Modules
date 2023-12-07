@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:43:03 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/25 10:55:22 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:36:40 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int main(void)
 		std::cout << jimmy << std::endl;
 		Bureaucrat michel("michel", 100);
 		std::cout << michel << std::endl;
-		// michel = jimmy;
-		++jimmy;
 		michel.signForm(pres);
 		jimmy.signForm(pres);
 		std::cout << jimmy << std::endl;

@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:01:45 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/11/28 12:47:58 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:31:40 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	AForm();
 	AForm(std::string name, int gradeSign, int gradeExec);
 	AForm(const AForm &inst);
-	~AForm();
+	virtual ~AForm();
 
 	// Operator Overload
 	AForm& operator=(const AForm &rhs);
