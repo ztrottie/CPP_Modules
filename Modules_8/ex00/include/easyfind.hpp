@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 14:36:34 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/08 10:34:13 by ztrottie         ###   ########.fr       */
+/*   Created: 2023/12/08 11:59:27 by ztrottie          #+#    #+#             */
+/*   Updated: 2023/12/08 12:32:23 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include <algorithm>
+#include <stdexcept>
 
 template<typename T>
-void	iter(T *array, unsigned int len, void func(T &context)) {
-	for (unsigned int i = 0; i < len; i++) {
-		func(array[i]);
-	}
-}
-
-template<typename T>
-void	print(T &element) {
-	std::cout << element << std::endl;
-}
-
-template<typename T>
-void	increment(T &element) {
-	element++;
+typename T::const_iterator easyfind(const T &container, int value) {
+	typename T::const_iterator iter = std::find(container.begin(), container.end(), value);
+	if (iter == container.end())
+		throw std::invalid_argument("The value as not been found!");
+	return iter;
 }
