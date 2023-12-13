@@ -1,14 +1,13 @@
-NAME	=	ex02
+NAME	=	btc
 
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -Wno-shadow -Wshadow
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -Wno-shadow -Wshadow -g
 
 SRC_DIR	=	src/
 BIN_DIR	=	bin/
 
 
 SRCS	=	main.cpp
-
 OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
 
 $(BIN_DIR)%.o: $(SRC_DIR)%.cpp

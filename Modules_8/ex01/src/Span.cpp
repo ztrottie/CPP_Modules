@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.cpp                                           :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 12:44:51 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/08 14:10:07 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/13 11:03:59 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Span.hpp"
-#include <algorithm>
-#include <filesystem>
 #include <iostream>
 #include <iterator>
 #include <limits>

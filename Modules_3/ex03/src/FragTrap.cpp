@@ -6,14 +6,14 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:55:10 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/25 10:03:59 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:18:35 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap() : ClapTrap() {
+FragTrap::FragTrap(){
 	std::cout << "Default FragTrap constructor " << std::endl;
 	this->attackDamage_ = defAttackDamage_;
 	this->hitPoints_ = defHitPoint_;

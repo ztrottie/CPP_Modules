@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:43:03 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/07 10:56:58 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:56:03 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(void)
 		jimmy.executeForm(*form);
 		std::cout << jimmy << std::endl;
 		std::cout << michel << std::endl;
-		delete form;
+		// delete form;
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}

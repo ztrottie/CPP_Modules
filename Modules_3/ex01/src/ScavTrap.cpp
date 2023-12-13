@@ -6,13 +6,13 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 09:45:46 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/10/22 11:27:29 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:19:01 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap(),  gateKeeper_(false) {
+ScavTrap::ScavTrap(void) : gateKeeper_(false) {
 	cout << "Default ScavTrap constructor" << endl;
 	this->attackDamage_ = 20;
 	this->hitPoints_ = 100;

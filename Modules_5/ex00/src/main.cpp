@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:43:03 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/07 10:38:41 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:49:55 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(void)
 {
 	try {
-		Bureaucrat tommy("tom", 1);
+		Bureaucrat tommy("tom", 0);
 		Bureaucrat jimmy("jimmy", 2);
 		std::cout << jimmy << std::endl;
 		Bureaucrat michel("michel", 100);
