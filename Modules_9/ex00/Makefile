@@ -7,7 +7,9 @@ SRC_DIR	=	src/
 BIN_DIR	=	bin/
 
 
-SRCS	=	main.cpp
+SRCS	=	main.cpp\
+			BitcoinExchange.cpp
+
 OBJS	=	$(addprefix $(BIN_DIR), ${SRCS:.cpp=.o})
 
 $(BIN_DIR)%.o: $(SRC_DIR)%.cpp
