@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 09:42:59 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/14 14:00:03 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/15 12:57:23 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
 	// Functions
 	void openDb();
 	void closeDb();
+	void doConversion(const std::string &fileName);
 };
 
 // BitcoinExchange_HPP
