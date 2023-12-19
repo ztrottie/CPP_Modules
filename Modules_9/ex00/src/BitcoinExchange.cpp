@@ -6,18 +6,15 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 09:43:02 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/15 13:24:35 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/19 14:13:28 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/BitcoinExchange.hpp"
-#include <cctype>
 #include <exception>
-#include <limits>
+#include <map>
 #include <sstream>
 #include <stdexcept>
-#include <string>
-#include <system_error>
 
 BitcoinExchange::BitcoinExchange() : _database(std::map<int, float>()), _isDbOpen(false) {
 	std::cout << "Default BitcoinExchange constructor " << std::endl;
@@ -50,41 +47,44 @@ static float valueParsing(const std::string &rawValue, const bool db) {
 	if (!db && fValue > 1000) {
 		throw  std::invalid_argument("too large number.");
 	}
-	else if (db && fValue < 0) {
+	else if (fValue < 0) {
 		throw std::invalid_argument("not a positive number.");
 	}
 	return fValue;
 }
 
-static int dateParsing(const std::string &rawDate) {
-	int date = 0;
+static unsigned int dateParsing(const std::string &rawDate) {
+	unsigned int date = 0;
 	std::string value;
 	std::stringstream ss(rawDate);
 	int i = 0;
 	while (std::getline(ss, value, '-')) {
-		int iValue;
+		int iValue = 0;
 		bool error = false;
 		try {
 			iValue = std::stoi(value);
 		} catch (std::exception &e) {
 			error = true;
 		}
-		switch (iValue) {
+		switch (i) {
 			case 0:
 				if (error || iValue < 0)
 					throw std::invalid_argument("bad input => " + rawDate);
 				else
 				 	date += iValue * 10000;
+				break;
 			case 1:
-				if (error || iValue < 1 || iValue > 12)
+				if (error || !(iValue >= 1 && iValue <= 12))
 					throw std::invalid_argument("bad input => " + rawDate);
 				else
 					date += iValue * 100;
+				break;
 			case 2:
-				if (error || iValue < 1 || iValue > 31)
+				if (error || !(iValue >= 1 && iValue <= 31))
 					throw std::invalid_argument("bad input => " + rawDate);
 				else
 					date += iValue;
+				break;
 		}
 		i++;
 	}
@@ -108,7 +108,7 @@ void	BitcoinExchange::openDb() {
 			std::getline(ss, rawDate, ',');
 			std::getline(ss, rawValue);
 			try {
-				int iDate = dateParsing(rawDate);
+				unsigned int iDate = dateParsing(rawDate);
 				float fValue = valueParsing(rawValue, true);
 				this->_database.insert(std::pair<int, float>(iDate, fValue));
 			} catch (std::exception &e) {
@@ -124,12 +124,24 @@ void	BitcoinExchange::closeDb() {
 	_isDbOpen = false;
 }
 
+float	BitcoinExchange::closestValue(const int &iDate) {
+	if (this->_database[iDate])
+		return this->_database[iDate];
+	int smallestDate = 0;
+	for (std::map<int, float>::const_iterator it = _database.begin(); it != _database.end(); it++) {
+		int tmpDate = it->first;
+		if (tmpDate > smallestDate && tmpDate < iDate)
+			smallestDate = tmpDate;
+	}
+	return _database[smallestDate];
+}
+
 void	BitcoinExchange::doConversion(const std::string &fileName) {
-	std::ifstream db;
+	std::ifstream ifs;
 	std::string str;
 
-	db.open(fileName);
-	while (std::getline(db, str)) {	
+	ifs.open(fileName);
+	while (std::getline(ifs, str)) {	
 		if (std::isdigit(str[0])) {
 			std::string sdate;
 			std::stringstream ss(str);
@@ -139,12 +151,12 @@ void	BitcoinExchange::doConversion(const std::string &fileName) {
 			std::getline(ss, rawValue);
 			try {
 				int iDate = dateParsing(rawDate);
-				float fValue = valueParsing(rawValue, true);
-				this->_database.insert(std::pair<int, float>(iDate, fValue));
+				float fValue = valueParsing(rawValue, false);
+				std::cout << rawDate << " => " << rawDate << " = " << closestValue(iDate) * fValue << std::endl;
 			} catch (std::exception &e) {
 				std::cout << "Error: "<< e.what() << std::endl;
 			} 
 		}
 	}
-	db.close();
+	ifs.close();
 }
