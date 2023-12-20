@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/20 14:23:53 by ztrottie          #+#    #+#             */
+/*   Updated: 2023/12/20 14:25:13 by ztrottie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
+
+class PmergeMe
+{
+private:
+
+public:
+	// Constructors / Destructor
+	PmergeMe();
+	PmergeMe(const PmergeMe &inst);
+	~PmergeMe();
+
+	// Operator Overload
+	PmergeMe& operator=(const PmergeMe &rhs);
+
+	// Functions
+	
+};
+
+// PmergeMe_HPP

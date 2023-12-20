@@ -6,14 +6,13 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 09:42:59 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/19 14:13:08 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/20 09:39:27 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
 #include <map>
-#include <fstream>
+
 
 class BitcoinExchange
 {

@@ -6,7 +6,7 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 09:43:02 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/19 14:13:28 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:24:26 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <map>
 #include <sstream>
 #include <stdexcept>
+#include <iostream>
+#include <fstream>
 
 BitcoinExchange::BitcoinExchange() : _database(std::map<int, float>()), _isDbOpen(false) {
 	std::cout << "Default BitcoinExchange constructor " << std::endl;
@@ -32,7 +34,8 @@ BitcoinExchange::~BitcoinExchange() {
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &rhs) {
 	std::cout << "BitcoinExchange operator = overload" << std::endl;
 	if (this != &rhs) {
-
+		_database = rhs._database;
+		_isDbOpen = rhs._isDbOpen;
 	}
 	return *this;
 }
