@@ -6,16 +6,15 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:23:53 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/20 14:25:13 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:20:49 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <iostream>
 
 class PmergeMe
 {
-private:
-
 public:
 	// Constructors / Destructor
 	PmergeMe();
@@ -26,7 +25,8 @@ public:
 	PmergeMe& operator=(const PmergeMe &rhs);
 
 	// Functions
-	
+	void	vectorSort(int argc, char **argv);
+	void	listSort(int argc, char **argv);
 };
 
 // PmergeMe_HPP
