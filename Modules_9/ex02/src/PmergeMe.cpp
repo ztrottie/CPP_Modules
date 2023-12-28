@@ -6,16 +6,16 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:23:40 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/27 18:12:52 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/28 10:13:31 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/PmergeMe.hpp"
 #include <algorithm>
+#include <chrono>
 #include <exception>
 #include <iostream>
-#include <list>
-#include <sstream>
+#include <deque>
 #include <stdexcept>
 #include <string>
 #include <utility>
@@ -37,7 +37,7 @@ PmergeMe::~PmergeMe() {
 PmergeMe& PmergeMe::operator=(const PmergeMe &rhs) {
 	std::cout << "PmergeMe operator = overload" << std::endl;
 	if (this != &rhs) {
-
+		
 	}
 	return *this;
 }
@@ -95,6 +95,7 @@ void	PmergeMe::vectorInsertion(std::vector<std::pair<int, int> > &vector, std::v
 void	PmergeMe::vectorSort(int argc, int *values) {
 	std::vector<std::pair<int, int> > vector;
 	
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 	for (int i = 0; i < argc - 1;) {
 		int number1 = values[i++];
 		if (i < argc - 1) {
@@ -111,95 +112,95 @@ void	PmergeMe::vectorSort(int argc, int *values) {
 	vectorMergeSort(vector, 0, vector.size() - 1);
 	std::vector<int> result;
 	for (std::vector<std::pair<int, int> >::const_iterator it = vector.begin(); it != vector.end(); it++) {
-		std::cout << "first: " << it->first << " second: " << it->second << std::endl;
-	}
-	for (std::vector<std::pair<int, int> >::const_iterator it = vector.begin(); it != vector.end(); it++) {
 		result.push_back(it->second);
 	}
 	vectorInsertion(vector, result);
-	for (std::vector<int>::const_iterator it = result.begin(); it != result.end(); it++) {
-		std::cout << "first: " << *it << std::endl;
-	}
+	std::cout << "After:   ";
+	for (std::vector<int>::const_iterator it = result.begin(); it != result.end(); it++)
+			std::cout << *it << " ";
+		std::cout << std::endl;
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1);
+	std::cout << "Time to process a range of " << argc - 1 << " elemets with std::vector : " << time_span.count() << " us" << std::endl; 
 }
 
-void	PmergeMe::listMerge(std::list<std::pair<int, int> > &list, int left, int mid, int right) {
+void	PmergeMe::dequeMerge(std::deque<std::pair<int, int> > &deque, int left, int mid, int right) {
 	const int lengthLeft = mid - left + 1;
 	const int lengthRight = right - mid;
 
-	std::list<std::pair<int, int> > leftList(list.begin() + left, list.begin() + mid + 1);
-	std::list<std::pair<int, int> > rightList(list.begin() + mid + 1, list.begin() + right + 1);
+	std::deque<std::pair<int, int> > leftDeque(deque.begin() + left, deque.begin() + mid + 1);
+	std::deque<std::pair<int, int> > rightDeque(deque.begin() + mid + 1, deque.begin() + right + 1);
 	
 	int i = 0, j = 0, k = left;
 	while (i < lengthLeft && j < lengthRight) {
-		if (leftList[i].second <= rightList[j].second) {
-			list[k] = leftList[i];
+		if (leftDeque[i].second <= rightDeque[j].second) {
+			deque[k] = leftDeque[i];
 			i++;
 		} else {
-			list[k] = rightList[j];
+			deque[k] = rightDeque[j];
 			j++;
 		}
 		k++;
 	}
 	while (i < lengthLeft) {
-		list[k] = leftList[i];
+		deque[k] = leftDeque[i];
 		i++;
 		k++;
 	}
 	while (i < lengthRight) {
-		list[k] = rightList[j];
+		deque[k] = rightDeque[j];
 		i++;
 		k++;
 	}
 }
 
-void PmergeMe::listMergeSort(std::list<std::pair<int, int> > &list, int const begin, int const end) {
+void PmergeMe::dequeMergeSort(std::deque<std::pair<int, int> > &deque, int const begin, int const end) {
 	if (begin >= end)
 		return;
 	int mid = begin + (end - begin) / 2;
-	listMergeSort(list, begin, mid);
-	listMergeSort(list, mid + 1, end);
-	listMerge(list, begin, mid, end);
+	dequeMergeSort(deque, begin, mid);
+	dequeMergeSort(deque, mid + 1, end);
+	dequeMerge(deque, begin, mid, end);
 }
 
-void	PmergeMe::listInsertion(std::list<std::pair<int, int> > &list, std::list<int> &result) {
-	while (!list.empty()) {
-		int nbr = list.front().first;
+void	PmergeMe::dequeInsertion(std::deque<std::pair<int, int> > &deque, std::deque<int> &result) {
+	while (!deque.empty()) {
+		int nbr = deque.front().first;
 		if (nbr != -1) {
-			std::list<int>::iterator it = std::lower_bound(result.begin(), result.end(), nbr);
+			std::deque<int>::iterator it = std::lower_bound(result.begin(), result.end(), nbr);
 			result.insert(it, nbr);
 		}
-		list.erase(list.begin());
+		deque.erase(deque.begin());
 	}
 }
 
-void	PmergeMe::listSort(int argc, int *values) {
-	std::list<std::pair<int, int> > list;
+void	PmergeMe::dequeSort(int argc, int *values) {
+	std::deque<std::pair<int, int> > deque;
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 	
 	for (int i = 0; i < argc - 1;) {
 		int number1 = values[i++];
 		if (i < argc - 1) {
 			int number2 = values[i++];
 			if (number2 > number1)
-				list.push_back(std::make_pair(number1, number2));
+				deque.push_back(std::make_pair(number1, number2));
 			else
-				list.push_back((std::make_pair(number2, number1)));
+				deque.push_back((std::make_pair(number2, number1)));
 		}
 		else {
-			list.push_back(std::make_pair(-1, number1));
+			deque.push_back(std::make_pair(-1, number1));
 		}
 	}
-	listMergeSort(list, 0, list.size() - 1);
-	std::list<int> result;
-	for (std::list<std::pair<int, int> >::const_iterator it = list.begin(); it != list.end(); it++) {
-		std::cout << "first: " << it->first << " second: " << it->second << std::endl;
-	}
-	for (std::list<std::pair<int, int> >::const_iterator it = list.begin(); it != list.end(); it++) {
+	dequeMergeSort(deque, 0, deque.size() - 1);
+	std::deque<int> result;
+	for (std::deque<std::pair<int, int> >::const_iterator it = deque.begin(); it != deque.end(); it++) {
 		result.push_back(it->second);
 	}
-	listInsertion(list, result);
-	for (std::list<int>::const_iterator it = result.begin(); it != result.end(); it++) {
-		std::cout << "first: " << *it << std::endl;
-	}
+	dequeInsertion(deque, result);
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1);
+	std::cout << "Time to process a range of " << argc - 1 << " elemets with std::deque : " << static_cast<double>(time_span.count()) << " us" << std::endl; 
+
 }
 
 void PmergeMe::sort(int argc, char **argv) {
@@ -207,8 +208,12 @@ void PmergeMe::sort(int argc, char **argv) {
 
 	try {
 		parsing(argc, argv, values);
+		std::cout << "before:  ";
+		for (int i = 0; i < argc - 1; i++)
+			std::cout << values[i] << " ";
+		std::cout << std::endl;
 		vectorSort(argc, values);
-		listSort(argc, values);
+		dequeSort(argc, values);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
@@ -224,4 +229,11 @@ void	PmergeMe::parsing(int argc, char **argv, int *values) {
 			throw std::invalid_argument("Error!");
 		}
 	}
+	// check for duplicates!
+	// for (int i = 0; i < argc - 1; i++) {
+	// 	for (int j = i + 1; j < argc - 1; j++) {
+	// 		if (values[i] == values[j])
+	// 			throw std::invalid_argument("Error!");
+	// 	}
+	// }
 }

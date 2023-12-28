@@ -6,14 +6,14 @@
 /*   By: ztrottie <ztrottie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:23:53 by ztrottie          #+#    #+#             */
-/*   Updated: 2023/12/27 18:12:36 by ztrottie         ###   ########.fr       */
+/*   Updated: 2023/12/28 09:42:41 by ztrottie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <utility>
-#include <list>
+#include <deque>
 #include <vector>
 
 class PmergeMe
@@ -35,10 +35,10 @@ public:
 	void	listSort(int argc, char **argv);
 	void	sort(int argc, char **argv);
 	void	parsing(int argc, char **argv, int *values);
-	void	listInsertion(std::list<std::pair<int, int> > &list, std::list<int> &result);
-	void	listSort(int argc, int *values);
-	void	listMergeSort(std::list<std::pair<int, int> > &list, int const begin, int const end);
-	void	listMerge(std::list<std::pair<int, int> > &list, int left, int mid, int right);
+	void	dequeMerge(std::deque<std::pair<int, int> > &deque, int left, int mid, int right);
+	void	dequeMergeSort(std::deque<std::pair<int, int> > &deque, int const begin, int const end);
+	void	dequeInsertion(std::deque<std::pair<int, int> > &deque, std::deque<int> &result);
+	void	dequeSort(int argc, int *values);
 };
 
 // PmergeMe_HPP
